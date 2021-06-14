@@ -52,7 +52,7 @@ class FlightRecyclerAdapter (private val flightList : List<Data>, var onAppcentC
 
             if (item.flight_status == "active")
                 itemView.ivStatus.setImageResource(R.drawable.green_circle)
-            else if (item.flight_status == "scheduled")
+            else if (item.flight_status == "scheduled" || item.flight_status == "landed")
                 itemView.ivStatus.setImageResource(R.drawable.yellow_circle)
             else
                 itemView.ivStatus.setImageResource(R.drawable.red_circle)
