@@ -37,9 +37,9 @@ class HomeActivity : AppCompatActivity() {
 
     private fun clearSavedData() {
         val sharedPreferences = getSharedPreferences("MySharedPreferences", Context.MODE_PRIVATE)
-        sharedPreferences.edit().remove("email").commit()
-        sharedPreferences.edit().remove("password").commit()
-        sharedPreferences.edit().remove("isRemember").commit()
+        sharedPreferences.edit().remove("email").apply()
+        sharedPreferences.edit().remove("password").apply()
+        sharedPreferences.edit().remove("isRemember").apply()
     }
 
     private fun getFlightData() {

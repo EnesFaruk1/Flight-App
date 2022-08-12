@@ -7,10 +7,9 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_login.*
 import mobi.appcent.flightapplication.R
+import mobi.appcent.flightapplication.utils.Constant
 
 class LoginActivity : AppCompatActivity() {
-    private val email = "appcent@appcent.mobi"
-    private val password = "123456"
     private var isRemember = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -18,7 +17,7 @@ class LoginActivity : AppCompatActivity() {
         setContentView(R.layout.activity_login)
 
         btnLogin.setOnClickListener {
-            if (email == etEmail.text.toString() && password == etPassword.text.toString()) {
+            if (Constant.email == etEmail.text.toString() && Constant.password == etPassword.text.toString()) {
                 if (isRemember) {
                     rememberMe()
                 }
@@ -28,7 +27,7 @@ class LoginActivity : AppCompatActivity() {
             } else {
                 Toast.makeText(
                     this,
-                    "Bilgileriniz hatalıdır. Lütfen bilgilerinizi kontrol ediniz.",
+                    Constant.loginError,
                     Toast.LENGTH_SHORT
                 ).show()
             }
@@ -42,8 +41,8 @@ class LoginActivity : AppCompatActivity() {
     private fun rememberMe(){
         val sharedPreferences = getSharedPreferences("MySharedPreferences", Context.MODE_PRIVATE)
         val infoEdit = sharedPreferences.edit()
-        infoEdit.putString("email",etEmail.text.toString())
-        infoEdit.putString("password",etPassword.text.toString())
+        infoEdit.putString(Constant.email,etEmail.text.toString())
+        infoEdit.putString(Constant.password,etPassword.text.toString())
         infoEdit.putBoolean("isRemember",isRemember)
         infoEdit.commit()
     }

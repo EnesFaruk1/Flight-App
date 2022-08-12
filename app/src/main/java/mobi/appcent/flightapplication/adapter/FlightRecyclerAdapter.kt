@@ -1,18 +1,13 @@
 package mobi.appcent.flightapplication.adapter
 
 import android.content.Context
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.squareup.picasso.Callback
-import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.item_view.view.*
 import mobi.appcent.flightapplication.R
 import mobi.appcent.flightapplication.model.Data
-import mobi.appcent.flightapplication.model.Flight
-import java.lang.Exception
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -52,7 +47,7 @@ class FlightRecyclerAdapter (private val flightList : List<Data>, var onAppcentC
 
             if (item.flight_status == "active")
                 itemView.ivStatus.setImageResource(R.drawable.green_circle)
-            else if (item.flight_status == "scheduled")
+            else if (item.flight_status == "scheduled" || item.flight_status == "landed")
                 itemView.ivStatus.setImageResource(R.drawable.yellow_circle)
             else
                 itemView.ivStatus.setImageResource(R.drawable.red_circle)
